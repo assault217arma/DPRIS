@@ -2,6 +2,9 @@ runtime: python27
 api_version: 1
 threadsafe: yes
 
+manual_scaling:
+  instances: 1
+
 handlers:
 
 - url: /img/(.*\.gif)
