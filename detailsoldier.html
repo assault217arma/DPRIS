@@ -170,7 +170,7 @@
         <li><a href="/soldier?platoon=nightmare">Nightmare</a>
 
         </li>
-        <li><a href="/soldier?platoon=viking">Viking</a>
+        <!-- <li><a href="/soldier?platoon=viking">Viking</a> -->
 
         </li>
         <li><a href="/soldier?platoon=guardian">Guardian</a>
@@ -179,12 +179,12 @@
         <li><a href="/soldier?platoon=whiskey">Whiskey</a>
 
         </li>
-        <li><a href="">No Element</a>
-            <ul>
+        <li><a href="/soldier?platoon=none">No Element</a>
+            <!--<ul>
                 <li><a href="/soldier?platoon=none">Recruits</a>
                 </li>
 
-            </ul>
+            </ul> -->
         </li>
     </ul>
 </div>
@@ -269,8 +269,8 @@
                 <select name="platoon">
                     <option value="nightmare" {% if soldier.platoon==
                     "nightmare" %} selected{% endif %}>Nightmare</option>
-                    <option value="viking" {% if soldier.platoon==
-                    "viking" %} selected{% endif %}>Viking</option>
+                    <!-- <option value="viking" {% if soldier.platoon==
+                    "viking" %} selected{% endif %}>Viking</option> -->
                     <option value="guardian" {% if soldier.platoon==
                     "guardian" %} selected{% endif %}>Guardian</option>
                     <option value="whiskey" {% if soldier.platoon==
@@ -278,7 +278,7 @@
                     <option value="toc" {% if soldier.platoon==
                     "toc" %} selected{% endif %}>TOC</option>
                     <option value="none" {% if soldier.platoon==
-                    "none" %} selected{% endif %}>None</option>
+                    "none" %} selected{% endif %}>Unassigned</option>
 
                 </select>
                 {% else %}

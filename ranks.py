@@ -47,6 +47,12 @@ def rankBuilderW(rank):
         return 'CW4'
     elif rank == 'CW4':
         return 'CW5'
+    elif rank == 'CW5':
+        return '2LT'
+    elif rank == '2LT':
+        return '1LT'
+    elif rank == '1LT':
+        return 'CPT'
 
 def rankDemote(rank):
     if rank == 'COL':
@@ -87,7 +93,13 @@ def rankDemote(rank):
         return 'RCT'
 
 def rankDemoteW(rank):
-    if rank == 'CW5':
+    if rank == 'CPT':
+        return '1LT'
+    elif rank == '1LT':
+        return '2LT'
+    elif rank == '2LT':
+        return 'CW5'
+    elif rank == 'CW5':
         return 'CW4'
     elif rank == 'CW4':
         return 'CW3'
@@ -98,4 +110,4 @@ def rankDemoteW(rank):
     elif rank == 'WO1':
         return 'WOC'
     elif rank == 'WOC':
-        return 'PV2'
+        return 'PVT'

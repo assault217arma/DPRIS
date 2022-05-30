@@ -194,30 +194,30 @@ class DetailSoldier(webapp2.RequestHandler):
 
         # return self.redirect('/soldier?platoon=none')
 
+#Remove pound sign ro reinstate this section when an addition platoon is activated.
+#class VikingXML(webapp2.RequestHandler):
+#    def get(self):
+#        s_query = models.SoldierData.query(models.SoldierData.platoon == 'viking').order(
+#            -models.SoldierData.rankorder, models.SoldierData.soldierName)
+#        soldier_data = s_query.fetch()
 
-class VikingXML(webapp2.RequestHandler):
-    def get(self):
-        s_query = models.SoldierData.query(models.SoldierData.platoon == 'viking').order(
-            -models.SoldierData.rankorder, models.SoldierData.soldierName)
-        soldier_data = s_query.fetch()
-
-        self.response.headers['Content-Type'] = "application/xml"
-        headerxml = """<?xml version="1.0"?>
-        <!DOCTYPE squad SYSTEM "squad.dtd">
-        <?xml-stylesheet href="squad.xsl" type="text/xsl"?>
-        <squad nick="2nd">
-        <name>2nd Platoon "Viking"</name>
-        <email>N/A</email>
-        <web>http://www.21strealism.com/</web>
-        <picture>21stLogo_VikingPatch.paa</picture>
-        <title>2nd Platoon "Viking"</title> \n"""
-        self.response.write(headerxml)
-        for x in soldier_data:
-            primexml = '<member id="' + str(
-                x.xmlid) + '" nick="' + x.rank + ' ' + x.soldierName + '"><name>' + x.rank + ' ' + x.soldierName + ' </name><email>N/A</email><icq>N/A</icq><remark>N/A</remark></member> \n'
-            self.response.write(primexml)
-        bottomxml = '</squad>'
-        self.response.write(bottomxml)
+#        self.response.headers['Content-Type'] = "application/xml"
+    #    headerxml = """<?xml version="1.0"?>
+    #    <!DOCTYPE squad SYSTEM "squad.dtd">
+    #    <?xml-stylesheet href="squad.xsl" type="text/xsl"?>
+    #    <squad nick="2nd">
+    #    <name>2nd Platoon "Viking"</name>
+    #    <email>N/A</email>
+    #    <web>http://www.21strealism.com/</web>
+    #    <picture>21stLogo_VikingPatch.paa</picture>
+    #    <title>2nd Platoon "Viking"</title> \n"""
+    #    self.response.write(headerxml)
+    #    for x in soldier_data:
+    #        primexml = '<member id="' + str(
+   #             x.xmlid) + '" nick="' + x.rank + ' ' + x.soldierName + '"><name>' + x.rank + ' ' + x.soldierName + ' </name><email>N/A</email><icq>N/A</icq><remark>N/A</remark></member> \n'
+  #          self.response.write(primexml)
+ #       bottomxml = '</squad>'
+#        self.response.write(bottomxml)
 
 
 class NightmareXML(webapp2.RequestHandler):
@@ -369,7 +369,7 @@ app = webapp2.WSGIApplication([
     ('/', MainPage),
     ('/soldier', SoldierPage),
     ('/detailsoldier', DetailSoldier),
-    ('/viking/squad.xml', VikingXML),
+    #('/viking/squad.xml', VikingXML),
     ('/nightmare/squad.xml', NightmareXML),
     ('/guardian/squad.xml', GuardianXML),
     ('/whiskey/squad.xml', WhiskeyXML),
