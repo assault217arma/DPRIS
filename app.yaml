@@ -1,169 +1,139 @@
 runtime: python27
-api_version: 1
-threadsafe: yes
-
+api_version: '1'
+env: standard
+threadsafe: true
+instance_class: B2
 manual_scaling:
- instances: 1
- 
-
-handlers:
-
-- url: /img/(.*\.gif)
-  static_files: img/\1
-  upload: img/.*\.gif
-  mime_type: "image/gif"
-
-- url: /img/(.*\.png)
-  static_files: img/\1
-  upload: img/.*\.png
-  mime_type: "image/x-png"
-
-- url: /img/(.*\.jpg)
-  static_files: img/\1
-  upload: img/.*\.jpg
-  mime_type: "image/jpeg"
-
-- url: /viking/(.*\.paa)
-  static_files: viking/\1
-  upload: viking/.*\.paa
-  mime_type: application/octet-stream
-
-- url: /viking/(.*\.dtd)
-  static_files: viking/\1
-  upload: viking/(.*\.dtd)
-  mime_type: application/xml-dtd
-
-- url: /viking/(.*\.xsl)
-  static_files: viking/\1
-  upload: viking/(.*\.xsl)
-  mime_type: text/html
-
-- url: /viking/(.*\.png)
-  static_files: viking/\1
-  upload: viking/(.*\.png)
-  mime_type: "image/png"
-
-- url: /viking/(.*\.css)
-  static_files: css/\1
-  upload: css/(.*\.css)
-  mime_type: "text/css"
-
-- url: /nightmare/(.*\.paa)
-  static_files: nightmare/\1
-  upload: nightmare/.*\.paa
-  mime_type: application/octet-stream
-
-- url: /nightmare/(.*\.dtd)
-  static_files: nightmare/\1
-  upload: nightmare/(.*\.dtd)
-  mime_type: application/xml-dtd
-
-- url: /nightmare/(.*\.xsl)
-  static_files: nightmare/\1
-  upload: nightmare/(.*\.xsl)
-  mime_type: text/html
-
-- url: /nightmare/(.*\.png)
-  static_files: nightmare/\1
-  upload: nightmare/(.*\.png)
-  mime_type: "image/png"
-
-- url: /nightmare/(.*\.css)
-  static_files: css/\1
-  upload: css/(.*\.css)
-  mime_type: "text/css"
-
-- url: /guardian/(.*\.paa)
-  static_files: guardian/\1
-  upload: guardian/.*\.paa
-  mime_type: application/octet-stream
-
-- url: /guardian/(.*\.dtd)
-  static_files: guardian/\1
-  upload: guardian/(.*\.dtd)
-  mime_type: application/xml-dtd
-
-- url: /guardian/(.*\.xsl)
-  static_files: guardian/\1
-  upload: guardian/(.*\.xsl)
-  mime_type: text/html
-
-- url: /guardian/(.*\.png)
-  static_files: guardian/\1
-  upload: guardian/(.*\.png)
-  mime_type: "image/png"
-
-- url: /guardian/(.*\.css)
-  static_files: css/\1
-  upload: css/(.*\.css)
-  mime_type: "text/css"
-
-- url: /whiskey/(.*\.paa)
-  static_files: whiskey/\1
-  upload: whiskey/.*\.paa
-  mime_type: application/octet-stream
-
-- url: /whiskey/(.*\.dtd)
-  static_files: whiskey/\1
-  upload: whiskey/(.*\.dtd)
-  mime_type: application/xml-dtd
-
-- url: /whiskey/(.*\.xsl)
-  static_files: whiskey/\1
-  upload: whiskey/(.*\.xsl)
-  mime_type: text/html
-
-- url: /whiskey/(.*\.png)
-  static_files: whiskey/\1
-  upload: whiskey/(.*\.png)
-  mime_type: "image/png"
-
-- url: /whiskey/(.*\.css)
-  static_files: css/\1
-  upload: css/(.*\.css)
-  mime_type: "text/css"
-
-- url: /toc/(.*\.paa)
-  static_files: toc/\1
-  upload: toc/.*\.paa
-  mime_type: application/octet-stream
-
-- url: /toc/(.*\.dtd)
-  static_files: toc/\1
-  upload: toc/(.*\.dtd)
-  mime_type: application/xml-dtd
-
-- url: /toc/(.*\.xsl)
-  static_files: toc/\1
-  upload: toc/(.*\.xsl)
-  mime_type: text/html
-
-- url: /toc/(.*\.png)
-  static_files: toc/\1
-  upload: toc/(.*\.png)
-  mime_type: "image/png"
-
-- url: /toc/(.*\.css)
-  static_files: css/\1
-  upload: css/(.*\.css)
-  mime_type: "text/css"
-
-- url: /favicon.ico
-  static_files: favicon.ico
-  upload: favicon.ico
-
-- url: /robots.txt
-  static_files: robots.txt
-  upload: robots.txt
-
-- url: .*
-  script: main.app
-
+  instances: 1
 libraries:
-- name: jinja2
-  version: latest
-- name: markupsafe
-  version: latest
-- name: webapp2
-  version: latest
+  - name: setuptools
+    version: 0.6c11
+  - name: jinja2
+    version: '2.6'
+  - name: webapp2
+    version: 2.5.2
+  - name: markupsafe
+    version: '0.15'
+handlers:
+  - url: /img/(.*\.gif)
+    mime_type: image/gif
+    static_files: img/\1
+    upload: img/.*\.gif
+  - url: /img/(.*\.png)
+    mime_type: image/x-png
+    static_files: img/\1
+    upload: img/.*\.png
+  - url: /img/(.*\.jpg)
+    mime_type: image/jpeg
+    static_files: img/\1
+    upload: img/.*\.jpg
+  - url: /viking/(.*\.paa)
+    mime_type: application/octet-stream
+    static_files: viking/\1
+    upload: viking/.*\.paa
+  - url: /viking/(.*\.dtd)
+    mime_type: application/xml-dtd
+    static_files: viking/\1
+    upload: viking/(.*\.dtd)
+  - url: /viking/(.*\.xsl)
+    mime_type: text/html
+    static_files: viking/\1
+    upload: viking/(.*\.xsl)
+  - url: /viking/(.*\.png)
+    mime_type: image/png
+    static_files: viking/\1
+    upload: viking/(.*\.png)
+  - url: /viking/(.*\.css)
+    mime_type: text/css
+    static_files: css/\1
+    upload: css/(.*\.css)
+  - url: /nightmare/(.*\.paa)
+    mime_type: application/octet-stream
+    static_files: nightmare/\1
+    upload: nightmare/.*\.paa
+  - url: /nightmare/(.*\.dtd)
+    mime_type: application/xml-dtd
+    static_files: nightmare/\1
+    upload: nightmare/(.*\.dtd)
+  - url: /nightmare/(.*\.xsl)
+    mime_type: text/html
+    static_files: nightmare/\1
+    upload: nightmare/(.*\.xsl)
+  - url: /nightmare/(.*\.png)
+    mime_type: image/png
+    static_files: nightmare/\1
+    upload: nightmare/(.*\.png)
+  - url: /nightmare/(.*\.css)
+    mime_type: text/css
+    static_files: css/\1
+    upload: css/(.*\.css)
+  - url: /guardian/(.*\.paa)
+    mime_type: application/octet-stream
+    static_files: guardian/\1
+    upload: guardian/.*\.paa
+  - url: /guardian/(.*\.dtd)
+    mime_type: application/xml-dtd
+    static_files: guardian/\1
+    upload: guardian/(.*\.dtd)
+  - url: /guardian/(.*\.xsl)
+    mime_type: text/html
+    static_files: guardian/\1
+    upload: guardian/(.*\.xsl)
+  - url: /guardian/(.*\.png)
+    mime_type: image/png
+    static_files: guardian/\1
+    upload: guardian/(.*\.png)
+  - url: /guardian/(.*\.css)
+    mime_type: text/css
+    static_files: css/\1
+    upload: css/(.*\.css)
+  - url: /whiskey/(.*\.paa)
+    mime_type: application/octet-stream
+    static_files: whiskey/\1
+    upload: whiskey/.*\.paa
+  - url: /whiskey/(.*\.dtd)
+    mime_type: application/xml-dtd
+    static_files: whiskey/\1
+    upload: whiskey/(.*\.dtd)
+  - url: /whiskey/(.*\.xsl)
+    mime_type: text/html
+    static_files: whiskey/\1
+    upload: whiskey/(.*\.xsl)
+  - url: /whiskey/(.*\.png)
+    mime_type: image/png
+    static_files: whiskey/\1
+    upload: whiskey/(.*\.png)
+  - url: /whiskey/(.*\.css)
+    mime_type: text/css
+    static_files: css/\1
+    upload: css/(.*\.css)
+  - url: /toc/(.*\.paa)
+    mime_type: application/octet-stream
+    static_files: toc/\1
+    upload: toc/.*\.paa
+  - url: /toc/(.*\.dtd)
+    mime_type: application/xml-dtd
+    static_files: toc/\1
+    upload: toc/(.*\.dtd)
+  - url: /toc/(.*\.xsl)
+    mime_type: text/html
+    static_files: toc/\1
+    upload: toc/(.*\.xsl)
+  - url: /toc/(.*\.png)
+    mime_type: image/png
+    static_files: toc/\1
+    upload: toc/(.*\.png)
+  - url: /toc/(.*\.css)
+    mime_type: text/css
+    static_files: css/\1
+    upload: css/(.*\.css)
+  - url: /favicon.ico
+    static_files: favicon.ico
+    upload: favicon.ico
+  - url: /robots.txt
+    static_files: robots.txt
+    upload: robots.txt
+  - url: .*
+    script: main.app
 
+service_account: dpris-165423@appspot.gserviceaccount.com
